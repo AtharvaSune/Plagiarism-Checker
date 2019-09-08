@@ -2,7 +2,15 @@ import os
 from data import get_files
 from process import Process
 
-if __name__ == "__main__":
+def main():
+    """
+        Driver method for data processing.
+        parameters:
+            none
+        
+        returns:
+            inverted index based on the corpus
+    """
     files = get_files("corpus-20090418/*.txt")
     inverted_index = {}
     files_dict = {os.path.splitext(os.path.basename(u))[0]:i+1 for i, u in enumerate(files)}
@@ -22,4 +30,12 @@ if __name__ == "__main__":
         inverted_index[i] = sorted(list(set(inverted_index[i])))
         inverted_index[i].append('\\' + str(len(inverted_index[i])) + '\\')
     
-    print(inverted_index['inheritance'])
+    return inverted_index
+
+
+if __name__ == "__main__":
+    main()
+    
+    help(main)
+    
+    # print(inverted_index['inheritance'])
