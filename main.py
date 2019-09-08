@@ -4,6 +4,7 @@ from process import Process
 if __name__ == "__main__":
     files = get_files("corpus-20090418/*.txt")
     inverted_index = {}
+    
     for i in files:
         print(i)
         proc = Process(i)
