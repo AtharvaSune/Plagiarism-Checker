@@ -23,7 +23,7 @@ class Process():
                 filepath: path to file which has to be preprocessed
         """
         self.filename = os.path.splitext(os.path.basename(filepath))[0]
-        self.filedata = open(filepath, encoding='utf-8').read()
+        self.filedata = open(filepath, encoding='unicode_escape').read()
 
     def get_wordnet_pos(self, word):
         """Generated POS tag for the words in a format accepted by lemmatize() function"""
