@@ -38,7 +38,6 @@ class Process():
         lemmatizer = WordNetLemmatizer()
         self.filedata = [lemmatizer.lemmatize(w, self.get_wordnet_pos(w)) for w in nltk.word_tokenize(''.join(self.filedata))]
 
-
     def remove_stopwords(self):
         """
             Removes stopwords from the corpus
@@ -59,17 +58,9 @@ class Process():
 
     def __call__(self):
         self.lemmatization()
-        self.remove_stopwords()
-        print(self.filedata)
-        
+        self.remove_stopwords()        
         return self.filename, self.filedata
 
-files = get_files("corpus-20090418/*.txt")
 
-
-def get_tokens(file):
-    proc = Process(file)
-    return proc()
-
-filename, filedata = get_tokens(files[0])
-print(filename, filedata)
+if __name__ == "__main__":
+    pass
