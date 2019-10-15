@@ -3,7 +3,6 @@ import math
 from data import get_files
 from process import Process
 
-if __name__ == "__main__":
     files = get_files("corpus-20090418/*.txt")
     inverted_index = {}
     files_dict = {os.path.splitext(os.path.basename(u))[0]:i+1 for i, u in enumerate(files)}
@@ -70,10 +69,12 @@ if __name__ == "__main__":
    
     # print(magn)
     
-    for org in range (3):
-        cosin = 0
-        for i in range (w):
-            cosin += term_frequency[0][i] * term_frequency[org + 26][i];
-        print(cosin)
-        print((cosin / (magn[0] * magn[26 + org])))
+    return inverted_index
+
+
+if __name__ == "__main__":
+    main()
     
+    help(main)
+    
+    # print(inverted_index['inheritance'])

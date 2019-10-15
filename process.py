@@ -35,6 +35,7 @@ class Process():
         return tag_dict.get(tag, wordnet.NOUN)
     
     def lemmatization(self):
+        """ Performs lemmatization on the input text"""
         lemmatizer = WordNetLemmatizer()
         self.filedata = [lemmatizer.lemmatize(w, self.get_wordnet_pos(w)) for w in nltk.word_tokenize(''.join(self.filedata))]
 
@@ -57,10 +58,23 @@ class Process():
 
 
     def __call__(self):
+        """ executes functions when object is called
+            parameters:
+                none
+            
+            returns:
+                filename and processed text of the file
+        """
         self.lemmatization()
         self.remove_stopwords()        
         return self.filename, self.filedata
 
 
-if __name__ == "__main__":
-    pass
+# if __name__ == "__main__":
+#     pass
+help(Process)
+help(Process.__init__)
+help(Process.lemmatization)
+help(Process.remove_stopwords)
+help(Process.get_wordnet_pos)
+help(Process.__call__)
