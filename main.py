@@ -1,41 +1,24 @@
 import os
-from data import get_files
+import math
+import pickle
+from data import get_docs
 from process import Process
+from calc_cosine import calc_cosine
+from process_originals import process_originals
+
+# for
 
 def main():
     """
         Driver method for data processing.
-        parameters:
-            none
-        
-        returns:
-            inverted index based on the corpus
     """
-    files = get_files("corpus-20090418/*.txt")
-    inverted_index = {}
-    files_dict = {os.path.splitext(os.path.basename(u))[0]:i+1 for i, u in enumerate(files)}
-    for i in files:
-        proc = Process(i)
-        filename, filedata = proc()
-        for j in filedata:
-            if j in inverted_index.keys():
-                inverted_index[j].append(files_dict[filename])
-            else:
-                inverted_index[j] = [files_dict[filename]]
-
-        del proc
-
-
-    for i in inverted_index:
-        inverted_index[i] = sorted(list(set(inverted_index[i])))
-        inverted_index[i].append('\\' + str(len(inverted_index[i])) + '\\')
     
-    return inverted_index
+    original_docs = get_docs("original docs/*.txt") 
+
+    test_docs = get_docs("test docs/*.txt")
+
+    df, tf_idf = process_originals(original_docs) 
 
 
 if __name__ == "__main__":
     main()
-    
-    help(main)
-    
-    # print(inverted_index['inheritance'])
