@@ -2,3 +2,7 @@ corpus*
 .vscode
 __pycache__
 IR_Assignment_1.zip
+*.sublime-*
+*.pyc
+df
+tf_idf

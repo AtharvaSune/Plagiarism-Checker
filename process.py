@@ -63,18 +63,9 @@ class Process():
                 none
             
             returns:
-                filename and processed text of the file
+                filename: name of the file
+                filedata: list of words in the file after processing
         """
         self.lemmatization()
-        self.remove_stopwords()        
+        self.remove_stopwords()    
         return self.filename, self.filedata
-
-
-# if __name__ == "__main__":
-#     pass
-help(Process)
-help(Process.__init__)
-help(Process.lemmatization)
-help(Process.remove_stopwords)
-help(Process.get_wordnet_pos)
-help(Process.__call__)
