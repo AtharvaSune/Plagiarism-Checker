@@ -73,6 +73,7 @@ def process_originals(original_docs):
 
         # append a new entry (dictionary) for current doc
         tf[doc] = dict()
+        
         # create a temporary set to store words present in the doc
         doc_vocab = set()
 
