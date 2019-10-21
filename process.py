@@ -1,7 +1,7 @@
 import re
 import os
 import nltk
-from data import get_files
+from data import get_docs
 from nltk.corpus import stopwords, wordnet
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer

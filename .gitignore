@@ -5,4 +5,5 @@ IR_Assignment_1.zip
 *.sublime-*
 *.pyc
 df
+tf
 tf_idf
